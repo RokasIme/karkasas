@@ -9,7 +9,7 @@ export function CategoriesTableRow({ category }) {
   const { adminDeleteCategory } = useContext(CategoriesContext);
 
   function handleDeleteClick() {
-    fetch("http://localhost:5437/api/admin/categories/" + category.id, {
+    fetch("http://localhost:5445/api/admin/categories/" + category.id, {
       method: "DELETE",
       credentials: "include",
     })

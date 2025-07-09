@@ -13,7 +13,7 @@ export async function moviesGet(req, res) {
       status: "success",
       list: result.map((m) => ({
         ...m,
-        thumbnail: m.thumbnail ? `http://localhost:5437/img/movie-thumbnails/${m.thumbnail}` : "",
+        thumbnail: m.thumbnail ? `http://localhost:5445/img/thumbnails/${m.thumbnail}` : "",
       })),
     });
   } catch (error) {

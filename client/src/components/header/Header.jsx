@@ -1,7 +1,9 @@
 import { Link } from "react-router";
 import { MenuLink } from "./MenuLink";
 import { mainMenuData } from "../../data/mainMenuData";
-import heroImg from "../../assets/movies-hero.png";
+
+import logo from "../../assets/logo.jpg";
+
 import { useContext } from "react";
 import { UserContext } from "../../context/user/UserContext";
 
@@ -9,7 +11,7 @@ export function Header({ isPublicPage }) {
   const { isLoggedIn, logout } = useContext(UserContext);
 
   function handleLogoutClick() {
-    fetch("http://localhost:5437/api/admin/logout", {
+    fetch("http://localhost:5445/api/admin/logout", {
       method: "GET",
       credentials: "include",
     })
@@ -27,7 +29,7 @@ export function Header({ isPublicPage }) {
       <header className="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
         <div className="col-md-3 mb-2 mb-md-0">
           <Link to="/" className="d-inline-flex link-body-emphasis text-decoration-none">
-            <img src={heroImg} alt="Logo" style={{ height: "3rem" }} />
+            <img src={logo} alt="Logo" style={{ height: "3rem" }} />
           </Link>
         </div>
         <ul className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">

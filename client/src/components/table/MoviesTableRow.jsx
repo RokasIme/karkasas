@@ -12,7 +12,7 @@ export function MoviesTableRow({ movie }) {
   const img = movie.thumbnail ? movie.thumbnail : defaultImg;
 
   function handleDeleteClick() {
-    fetch("http://localhost:5437/api/admin/movies/" + movie.id, {
+    fetch("http://localhost:5445/api/admin/movies/" + movie.id, {
       method: "DELETE",
       credentials: "include",
     })

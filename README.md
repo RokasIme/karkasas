@@ -3,7 +3,7 @@
 ![Eco Status](https://img.shields.io/badge/ECO-Friendly-green.svg)
 [![Discord](https://discord.com/api/guilds/571393319201144843/widget.png)](https://discord.gg/dRwW4rw)
 
-# Movies - The Final Project
+# This is a JavaScript exam project
 
 _website design project_
 
@@ -11,7 +11,10 @@ _website design project_
 
 ## 🌟 About
 
-This project is for educational porpuses only. Pull request are welcome, but priority for project authors! Thank you for your cooperation!
+This project is for exam porpuses only. Pull request are welcome, but priority for project authors! Thank you for your cooperation!
+To log in, you can use the following credentials:
+Username: chuck@norris.lt
+Password: chuck@norris.lt
 
 ## 🎯 Project features/goals
 
@@ -41,7 +44,7 @@ Would like to run this project locally? Open terminal and follow these steps:
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/RokasIme/54-grupe-final.git
+   git clone https://github.com/RokasIme/exam.git
    ```
 2. Install main NPM packages
    ```sh
@@ -62,7 +65,7 @@ There is no tests for this project.
 
 ## 🎅 Authors
 
-Rimantas: [Github](https://github.com/RokasIme)
+Rokas: [Github](https://github.com/RokasIme)
 
 ## ⚠️ License
 

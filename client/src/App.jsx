@@ -42,9 +42,10 @@ export function App() {
               <Route Component={PublicLayout}>
                 <Route index path="/" element={<PageHome />} />
                 <Route path="/movies" element={<PageMovies />} />
-                <Route path="/movies/:movie" element={<PageMovieInner />} />
+                {/* <Route path="/movies/:movie" element={<PageMovieInner />} /> */}
                 <Route path="/categories" element={<PageCategories />} />
-                <Route path="/categories/:category" element={<PageCategoryInner />} />
+                {/* <Route path="/categories/:category" element={<PageCategoryInner />} /> */}
+
                 <Route path="/register" element={<PageRegister />} />
                 <Route path="/login" element={<PageLogin />} />
               </Route>

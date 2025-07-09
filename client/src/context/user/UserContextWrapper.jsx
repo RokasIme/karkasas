@@ -9,7 +9,7 @@ export function UserContextWrapper(props) {
   const [userId, setUserId] = useState(initialUserContext.userId);
 
   useEffect(() => {
-    fetch("http://localhost:5437/api/public/login", {
+    fetch("http://localhost:5445/api/public/login", {
       method: "GET",
       credentials: "include",
     })

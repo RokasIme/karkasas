@@ -22,7 +22,7 @@ export function MoviesContextWrapper(props) {
   }, [isLoggedIn]);
 
   function fetchPublicMovies() {
-    fetch("http://localhost:5437/api/public/movies", {
+    fetch("http://localhost:5445/api/public/movies", {
       method: "GET",
       credentials: "include",
     })
@@ -36,7 +36,7 @@ export function MoviesContextWrapper(props) {
   }
 
   function fetchAdminMovies() {
-    fetch("http://localhost:5437/api/admin/movies", {
+    fetch("http://localhost:5445/api/admin/movies", {
       method: "GET",
       credentials: "include",
     })

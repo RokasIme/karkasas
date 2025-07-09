@@ -23,7 +23,7 @@ export function CategoriesContextWrapper(props) {
   }, [isLoggedIn]);
 
   useEffect(() => {
-    fetch("http://localhost:5437/api/public/categories/featured", {
+    fetch("http://localhost:5445/api/public/categories/featured", {
       method: "GET",
       credentials: "include",
     })
@@ -37,7 +37,7 @@ export function CategoriesContextWrapper(props) {
   }, []);
 
   function fetchPublicCategories() {
-    fetch("http://localhost:5437/api/public/categories", {
+    fetch("http://localhost:5445/api/public/categories", {
       method: "GET",
       credentials: "include",
     })
@@ -51,7 +51,7 @@ export function CategoriesContextWrapper(props) {
   }
 
   function fetchAdminCategories() {
-    fetch("http://localhost:5437/api/admin/categories", {
+    fetch("http://localhost:5445/api/admin/categories", {
       method: "GET",
       credentials: "include",
     })

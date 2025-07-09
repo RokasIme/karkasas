@@ -30,7 +30,7 @@ export function MovieNewForm() {
     const formData = new FormData();
     formData.append("thumbnail", e.target.files[0]);
 
-    fetch("http://localhost:5437/api/admin/upload", {
+    fetch("http://localhost:5445/api/admin/upload", {
       method: "POST",
       credentials: "include",
       body: formData,
@@ -65,7 +65,7 @@ export function MovieNewForm() {
       data.category = category;
     }
 
-    fetch("http://localhost:5437/api/admin/movies", {
+    fetch("http://localhost:5445/api/admin/movies", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -101,7 +101,7 @@ export function MovieNewForm() {
             />
             <div className="invalid-feedback">Valid image is required.</div>
           </div>
-          <img id="image" className="col-12 movie-thumbnail" src={img ? img : defaultImg} alt="" />
+          <img id="image" className="col-12 thumbnail" src={img ? img : defaultImg} alt="" />
           <p>Image url: {img}</p>
         </div>
       </form>

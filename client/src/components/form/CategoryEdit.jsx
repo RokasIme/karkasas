@@ -30,7 +30,7 @@ export function CategoryEditForm() {
   function handleFormSubmit(e) {
     e.preventDefault();
 
-    fetch("http://localhost:5437/api/admin/categories/" + id, {
+    fetch("http://localhost:5445/api/admin/categories/" + id, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

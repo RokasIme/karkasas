@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Link, useParams } from "react-router";
 import { formatMovieDuration } from "../../../lib/formatMovieDuration";
-import defaultImg from "../../../assets/movies-hero.png";
+import defaultImg from "../../../assets/logo.jpg";
 import { MoviesContext } from "../../../context/movies/MoviesContext";
 
 export function PageMovieInner() {
@@ -31,11 +31,11 @@ export function PageMovieInner() {
             />
           </div>
           <div className="col-lg-6">
-            <h1 className="display-5 fw-bold text-body-emphasis lh-1 mb-3">Movie not found</h1>
-            <p className="lead">Movie with address "{params.movie}" not found.</p>
+            <h1 className="display-5 fw-bold text-body-emphasis lh-1 mb-3">Not found</h1>
+            <p className="lead">Nothing with address "{params.movie}" found.</p>
             <div className="d-grid gap-2 d-md-flex justify-content-md-start">
               <Link to="/movies" className="btn btn-primary btn-lg px-4 me-md-2">
-                View all movies
+                View all
               </Link>
             </div>
           </div>
@@ -49,8 +49,8 @@ export function PageMovieInner() {
       <div className="row flex-lg-row-reverse align-items-center g-5 py-5">
         <div className="col-10 col-sm-8 col-lg-6">
           <img
-            src={`/img/movie-thumbnails/${movie.thumbnail}`}
-            className="movie-inner-thumbnail d-block mx-lg-auto img-fluid"
+            src={`http://localhost:5445/img/thumbnails/${movie.thumbnail}`}
+            className="inner-thumbnail d-block mx-lg-auto img-fluid"
             alt="Bootstrap Themes"
             loading="lazy"
           />

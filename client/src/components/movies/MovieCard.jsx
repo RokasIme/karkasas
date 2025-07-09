@@ -1,17 +1,16 @@
 import { Link } from "react-router";
 import { formatMovieDuration } from "../../lib/formatMovieDuration";
-// import { PORT_SERVER } from "../../../../server/env";
 
 export function MovieCard({ data }) {
   return (
     <div className="col">
       <div className="card shadow-sm">
         <img
-          src={"http://localhost:5437/img/movie-thumbnails/" + data.thumbnail}
-          className="movie-card-thumbnail card-img-top"
+          src={"http://localhost:5445/img/thumbnails/" + data.thumbnail}
+          className="card-thumbnail card-img-top"
           style={{ height: 225 }}
         />
-        <div className="badge bg-primary movie-card-badge">{data.categoryName}</div>
+        <div className="badge bg-primary card-badge">{data.categoryName}</div>
         <div className="card-body">
           <Link to={`/movies/${data.url_slug}`} className="h4">
             {data.title}

@@ -10,6 +10,6 @@ export async function apiUpload(req, res) {
 
   return res.status(200).json({
     status: "success",
-    msg: `http://localhost:${PORT_SERVER}/img/movie-thumbnails/${req.newFileName}`,
+    msg: `http://localhost:${PORT_SERVER}/img/thumbnails/${req.newFileName}`,
   });
 }
