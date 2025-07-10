@@ -1,4 +1,4 @@
-import { CategoriesTableRow } from "./CategoriesTableRow";
+// import { CategoriesTableRow } from "./CategoriesTableRow";
 
 export function CategoriesTable({ data }) {
   return (
@@ -16,9 +16,9 @@ export function CategoriesTable({ data }) {
           </tr>
         </thead>
         <tbody>
-          {data.map((item) => (
-            <CategoriesTableRow key={item.id} category={item} />
-          ))}
+          {/* {data.map((item) => ( */}
+          {/* // <CategoriesTableRow key={item.id} category={item} /> */}
+          {/* ))} */}
         </tbody>
       </table>
     </div>

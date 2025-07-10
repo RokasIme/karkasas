@@ -1,14 +1,14 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router";
-import { CategoriesContext } from "../../context/categories/CategoriesContext";
-import { MoviesContext } from "../../context/movies/MoviesContext";
 import defaultImg from "../../assets/default.webp";
+// import { CategoriesContext } from "../../context/categories/CategoriesContext";
+// import { MoviesContext } from "../../context/movies/MoviesContext";
 
 export function MovieNewForm() {
   const navigate = useNavigate();
 
-  const { adminCategories } = useContext(CategoriesContext);
-  const { adminRefreshMovies } = useContext(MoviesContext);
+  // const { adminCategories } = useContext(CategoriesContext);
+  // const { adminRefreshMovies } = useContext(MoviesContext);
 
   const [img, setImg] = useState("");
   const [name, setName] = useState("");
@@ -27,60 +27,59 @@ export function MovieNewForm() {
   }
 
   function handleImageChange(e) {
-    const formData = new FormData();
-    formData.append("thumbnail", e.target.files[0]);
-
-    fetch("http://localhost:5445/api/admin/upload", {
-      method: "POST",
-      credentials: "include",
-      body: formData,
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.status === "success") {
-          setImg(data.msg);
-        }
-      })
-      .catch(console.error);
+    // const formData = new FormData();
+    // formData.append("thumbnail", e.target.files[0]);
+    // fetch("http://localhost:5445/api/admin/upload", {
+    //   method: "POST",
+    //   credentials: "include",
+    //   body: formData,
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     if (data.status === "success") {
+    //       setImg(data.msg);
+    //     }
+    //   })
+    //   .catch(console.error);
   }
 
   function handleMainFormSubmit(e) {
     e.preventDefault();
 
-    const data = { name, url, status };
+    // const data = { name, url, status };
 
-    if (img) {
-      data.img = img.split("/").at(-1);
-    }
-    if (description) {
-      data.description = description;
-    }
-    if (minutes) {
-      data.minutes = minutes;
-    }
-    if (hours) {
-      data.hours = hours;
-    }
-    if (category) {
-      data.category = category;
-    }
+    // if (img) {
+    //   data.img = img.split("/").at(-1);
+    // }
+    // if (description) {
+    //   data.description = description;
+    // }
+    // if (minutes) {
+    //   data.minutes = minutes;
+    // }
+    // if (hours) {
+    //   data.hours = hours;
+    // }
+    // if (category) {
+    //   data.category = category;
+    // }
 
-    fetch("http://localhost:5445/api/admin/movies", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-      body: JSON.stringify(data),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.status === "success") {
-          adminRefreshMovies();
-          navigate("/admin/movies");
-        }
-      })
-      .catch(console.error);
+    // fetch("http://localhost:5445/api/admin/movies", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   credentials: "include",
+    //   body: JSON.stringify(data),
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     if (data.status === "success") {
+    //       adminRefreshMovies();
+    //       navigate("/admin/movies");
+    //     }
+    //   })
+    //   .catch(console.error);
   }
 
   return (
@@ -195,11 +194,11 @@ export function MovieNewForm() {
               id="category"
             >
               <option value="">Choose...</option>
-              {adminCategories.map((c) => (
+              {/* {adminCategories.map((c) => (
                 <option key={c.url_slug} value={c.url_slug}>
                   {c.name}
                 </option>
-              ))}
+              ))} */}
             </select>
           </div>
           <div className="my-3">

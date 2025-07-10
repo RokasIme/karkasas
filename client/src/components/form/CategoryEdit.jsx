@@ -1,11 +1,11 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
-import { CategoriesContext } from "../../context/categories/CategoriesContext";
+// import { CategoriesContext } from "../../context/categories/CategoriesContext";
 
 export function CategoryEditForm() {
   const navigate = useNavigate();
   const { category } = useParams();
-  const { adminCategories, adminRefreshCategory } = useContext(CategoriesContext);
+  // const { adminCategories, adminRefreshCategory } = useContext(CategoriesContext);
 
   const [id, setId] = useState(0);
   const [name, setName] = useState("");
@@ -13,39 +13,38 @@ export function CategoryEditForm() {
   const [description, setDescription] = useState("");
   const [status, setStatus] = useState("draft");
 
-  useEffect(handleResetClick, [adminCategories, category]);
+  // useEffect(handleResetClick, [adminCategories, category]);
 
   function handleResetClick() {
-    const categoryData = category ? adminCategories.filter((c) => c.url_slug === category)[0] : null;
-
-    if (categoryData) {
-      setId(categoryData.id);
-      setName(categoryData.name);
-      setUrl(categoryData.url_slug);
-      setDescription(categoryData.description);
-      setStatus(categoryData.is_published === 0 ? "draft" : "publish");
-    }
+    // const categoryData = category ? adminCategories.filter((c) => c.url_slug === category)[0] : null;
+    // if (categoryData) {
+    //   setId(categoryData.id);
+    //   setName(categoryData.name);
+    //   setUrl(categoryData.url_slug);
+    //   setDescription(categoryData.description);
+    //   setStatus(categoryData.is_published === 0 ? "draft" : "publish");
+    // }
   }
 
   function handleFormSubmit(e) {
     e.preventDefault();
 
-    fetch("http://localhost:5445/api/admin/categories/" + id, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-      body: JSON.stringify({ name, url, description, status }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.status === "success") {
-          adminRefreshCategory();
-          navigate("/admin/categories");
-        }
-      })
-      .catch(console.error);
+    // fetch("http://localhost:5445/api/admin/categories/" + id, {
+    //   method: "PUT",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   credentials: "include",
+    //   body: JSON.stringify({ name, url, description, status }),
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     if (data.status === "success") {
+    //       adminRefreshCategory();
+    //       navigate("/admin/categories");
+    //     }
+    //   })
+    //   .catch(console.error);
   }
 
   return (

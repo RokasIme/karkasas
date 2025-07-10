@@ -1,14 +1,14 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
-import { CategoriesContext } from "../../context/categories/CategoriesContext";
-import { MoviesContext } from "../../context/movies/MoviesContext";
 import defaultImg from "../../assets/default.webp";
+// import { CategoriesContext } from "../../context/categories/CategoriesContext";
+// import { MoviesContext } from "../../context/movies/MoviesContext";
 
 export function MovieEditForm() {
   const navigate = useNavigate();
-  const { movie } = useParams();
-  const { adminCategories } = useContext(CategoriesContext);
-  const { adminMovies, adminRefreshMovies } = useContext(MoviesContext);
+  // const { movie } = useParams();
+  // const { adminCategories } = useContext(CategoriesContext);
+  // const { adminMovies, adminRefreshMovies } = useContext(MoviesContext);
 
   const [id, setId] = useState(0);
   const [img, setImg] = useState("");
@@ -20,79 +20,77 @@ export function MovieEditForm() {
   const [category, setCategory] = useState("");
   const [status, setStatus] = useState("draft");
 
-  useEffect(handleResetClick, [adminMovies, movie]);
+  // useEffect(handleResetClick, [adminMovies, movie]);
 
   function handleResetClick() {
-    const movieData = movie ? adminMovies.filter((m) => m.url_slug === movie)[0] : null;
-
-    if (movieData) {
-      setId(movieData.id);
-      setImg(movieData.thumbnail);
-      setName(movieData.title);
-      setUrl(movieData.url_slug);
-      setDescription(movieData.description);
-      setMinutes(movieData.duration % 60);
-      setHours((movieData.duration - (movieData.duration % 60)) / 60);
-      setCategory(movieData.category_url_slug);
-      setStatus(movieData.is_published === 0 ? "draft" : "publish");
-    }
+    //   const movieData = movie ? adminMovies.filter((m) => m.url_slug === movie)[0] : null;
+    //   if (movieData) {
+    //     setId(movieData.id);
+    //     setImg(movieData.thumbnail);
+    //     setName(movieData.title);
+    //     setUrl(movieData.url_slug);
+    //     setDescription(movieData.description);
+    //     setMinutes(movieData.duration % 60);
+    //     setHours((movieData.duration - (movieData.duration % 60)) / 60);
+    //     setCategory(movieData.category_url_slug);
+    //     setStatus(movieData.is_published === 0 ? "draft" : "publish");
+    //   }
   }
 
   function handleImageChange(e) {
-    const formData = new FormData();
-    formData.append("thumbnail", e.target.files[0]);
-
-    fetch("http://localhost:5445/api/admin/upload", {
-      method: "POST",
-      credentials: "include",
-      body: formData,
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.status === "success") {
-          setImg(data.msg);
-        }
-      })
-      .catch(console.error);
+    // const formData = new FormData();
+    // formData.append("thumbnail", e.target.files[0]);
+    // fetch("http://localhost:5445/api/admin/upload", {
+    //   method: "POST",
+    //   credentials: "include",
+    //   body: formData,
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     if (data.status === "success") {
+    //       setImg(data.msg);
+    //     }
+    //   })
+    //   .catch(console.error);
   }
 
   function handleMainFormSubmit(e) {
     e.preventDefault();
 
-    const data = { name, url, status };
+    // const data = { name, url, status };
 
-    if (img) {
-      data.img = img.split("/").at(-1);
-    }
-    if (description) {
-      data.description = description;
-    }
-    if (minutes) {
-      data.minutes = minutes;
-    }
-    if (hours) {
-      data.hours = hours;
-    }
-    if (category) {
-      data.category = category;
-    }
+    // if (img) {
+    //   data.img = img.split("/").at(-1);
+    // }
+    // if (description) {
+    //   data.description = description;
+    // }
+    // if (minutes) {
+    //   data.minutes = minutes;
+    // }
+    // if (hours) {
+    //   data.hours = hours;
+    // }
+    // if (category) {
+    //   data.category = category;
+    // }
 
-    fetch("http://localhost:5445/api/admin/movies/" + id, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-      body: JSON.stringify(data),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.status === "success") {
-          adminRefreshMovies();
-          navigate("/admin/movies");
-        }
-      })
-      .catch(console.error);
+    // fetch("http://localhost:5445/api/admin/movies/" + id, {
+    //   method: "PUT",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   credentials: "include",
+    //   body: JSON.stringify(data),
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     if (data.status === "success") {
+    //       adminRefreshMovies();
+    //       navigate("/admin/movies");
+    //     }
+    //   })
+    //   .catch(console.error);
   }
 
   return (
@@ -207,11 +205,11 @@ export function MovieEditForm() {
               id="category"
             >
               <option value="">Choose...</option>
-              {adminCategories.map((c) => (
+              {/* {adminCategories.map((c) => (
                 <option key={c.url_slug} value={c.url_slug}>
-                  {c.name}
-                </option>
-              ))}
+                  {c.name} */}
+              {/* </option>
+              ))} */}
             </select>
           </div>
           <div className="my-3">

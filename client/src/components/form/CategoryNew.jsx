@@ -1,9 +1,9 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router";
-import { CategoriesContext } from "../../context/categories/CategoriesContext";
+// import { CategoriesContext } from "../../context/categories/CategoriesContext";
 
 export function CategoryNewForm() {
-  const { adminRefreshCategory } = useContext(CategoriesContext);
+  // const { adminRefreshCategory } = useContext(CategoriesContext);
   const [name, setName] = useState("");
   const [url, setUrl] = useState("");
   const [description, setDescription] = useState("");
@@ -20,22 +20,22 @@ export function CategoryNewForm() {
   function handleFormSubmit(e) {
     e.preventDefault();
 
-    fetch("http://localhost:5445/api/admin/categories", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-      body: JSON.stringify({ name, url, description, status }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.status === "success") {
-          adminRefreshCategory();
-          navigate("/admin/categories");
-        }
-      })
-      .catch(console.error);
+    // fetch("http://localhost:5445/api/admin/categories", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   credentials: "include",
+    //   body: JSON.stringify({ name, url, description, status }),
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     if (data.status === "success") {
+    //       adminRefreshCategory();
+    //       navigate("/admin/categories");
+    //     }
+    //   })
+    //   .catch(console.error);
   }
 
   return (
