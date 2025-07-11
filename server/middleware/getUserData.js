@@ -13,9 +13,7 @@ export async function getUserData(req, res, next) {
   try {
     const sql = `
             SELECT
-                users.id, users.email,
-                users.created_at AS userCreatedAt,
-                tokens.created_at AS tokenCreatedAt
+                users.id, users.email
             FROM users
             INNER JOIN tokens
                 ON users.id = tokens.user_id
