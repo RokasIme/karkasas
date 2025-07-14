@@ -6,7 +6,6 @@ import { UserContext } from "../user/UserContext";
 export function CategoriesContextWrapper(props) {
   const [publicCategories, setPublicCategories] = useState(initialCategoriesContext.publicCategories);
   const [adminCategories, setAdminCategories] = useState(initialCategoriesContext.adminCategories);
-  const [featuredCategories, setFeaturedCategories] = useState(initialCategoriesContext.featuredCategories);
 
   const { isLoggedIn } = useContext(UserContext);
 
@@ -21,20 +20,6 @@ export function CategoriesContextWrapper(props) {
       fetchAdminCategories();
     }
   }, [isLoggedIn]);
-
-  useEffect(() => {
-    fetch("http://localhost:5445/api/public/categories/featured", {
-      method: "GET",
-      credentials: "include",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.status === "success") {
-          setFeaturedCategoriesList(data.list);
-        }
-      })
-      .catch(console.error);
-  }, []);
 
   function fetchPublicCategories() {
     fetch("http://localhost:5445/api/public/categories", {
@@ -72,10 +57,6 @@ export function CategoriesContextWrapper(props) {
     setAdminCategories(() => data);
   }
 
-  function setFeaturedCategoriesList(data) {
-    setFeaturedCategories(() => data);
-  }
-
   function adminRefreshCategory() {
     fetchPublicCategories();
     fetchAdminCategories();
@@ -88,10 +69,8 @@ export function CategoriesContextWrapper(props) {
 
   const value = {
     publicCategories,
-    featuredCategories,
     adminCategories,
     setPublicCategoriesList,
-    setFeaturedCategoriesList,
     setAdminCategoriesList,
     adminRefreshCategory,
     adminDeleteCategory,

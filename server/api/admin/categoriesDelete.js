@@ -17,12 +17,12 @@ export async function categoriesDelete(req, res) {
     if (result.affectedRows === 1) {
       return res.json({
         status: "success",
-        msg: "Kategorija istrinta sekmingai",
+        msg: "Eilutė ištrinta sėkmingai",
       });
     } else {
       return res.json({
         status: "success",
-        msg: "Kategorija nebuvo istrinta",
+        msg: "Eilutė nebuvo ištrinta",
       });
     }
   } catch (error) {

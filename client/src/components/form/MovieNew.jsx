@@ -27,20 +27,20 @@ export function MovieNewForm() {
   }
 
   function handleImageChange(e) {
-    // const formData = new FormData();
-    // formData.append("thumbnail", e.target.files[0]);
-    // fetch("http://localhost:5445/api/admin/upload", {
-    //   method: "POST",
-    //   credentials: "include",
-    //   body: formData,
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     if (data.status === "success") {
-    //       setImg(data.msg);
-    //     }
-    //   })
-    //   .catch(console.error);
+    const formData = new FormData();
+    formData.append("thumbnail", e.target.files[0]);
+    fetch("http://localhost:5445/api/admin/upload", {
+      method: "POST",
+      credentials: "include",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.status === "success") {
+          setImg(data.msg);
+        }
+      })
+      .catch(console.error);
   }
 
   function handleMainFormSubmit(e) {

@@ -8,14 +8,14 @@ export async function getLogout(req, res) {
     if (result.affectedRows !== 1) {
       return res.status(500).json({
         status: "error",
-        msg: "Serverio klaida, pabandykite atsijungti veliau",
+        msg: "Serverio klaida, pabandykite atsijungti vėliau",
       });
     }
   } catch (error) {
     console.log(error);
     return res.status(500).json({
       status: "error",
-      msg: "Serverio klaida, pabandykite atsijungti veliau",
+      msg: "Serverio klaida, pabandykite atsijungti vėliau",
     });
   }
 
@@ -23,6 +23,6 @@ export async function getLogout(req, res) {
 
   return res.set("Set-Cookie", cookie.join("; ")).json({
     status: "success",
-    msg: "Jus buvote sekmingai atjungti nuo sistemos",
+    msg: "Jus buvote sėkmingai atjungti nuo sistemos",
   });
 }
