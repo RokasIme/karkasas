@@ -56,14 +56,12 @@ export function App() {
             <Route path="/admin/categories/new" element={<PageNewCategory />} />
             <Route path="/admin/categories/published" element={<PagePublishedCategories />} />
             <Route path="/admin/categories/draft" element={<PageDraftCategories />} />
-            <Route path="/admin/categories/:category" element={<PageEditCategory />} />
             <Route path="/admin/categories/:category/edit" element={<PageEditCategory />} />
 
             <Route path="/admin/movies" element={<PageAllMovies />} />
             <Route path="/admin/movies/new" element={<PageNewMovie />} />
             <Route path="/admin/movies/published" element={<PagePublishedMovies />} />
             <Route path="/admin/movies/draft" element={<PageDraftMovies />} />
-            <Route path="/admin/movies/:movie" element={<PageEditMovie />} />
             <Route path="/admin/movies/:movie/edit" element={<PageEditMovie />} />
           </Route>
           <Route Component={PublicLayout}>

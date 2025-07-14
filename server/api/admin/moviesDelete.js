@@ -19,7 +19,7 @@ export async function moviesDelete(req, res) {
     const [rows] = await connection.execute(`SELECT thumbnail FROM movies WHERE id = ?`, [movieId]);
 
     if (rows.length === 0) {
-      return res.json({ status: "error", msg: "Filmas nerastas" });
+      return res.json({ status: "error", msg: "Eilutė nerasta" });
     }
 
     const thumbnailFile = rows[0].thumbnail;
@@ -37,12 +37,12 @@ export async function moviesDelete(req, res) {
     if (result.affectedRows === 1) {
       return res.json({
         status: "success",
-        msg: "Filmas ištrintas sėkmingai",
+        msg: "Eilutė ištrinta sėkmingai",
       });
     } else {
       return res.json({
-        status: "success",
-        msg: "Filmas nebuvo ištrintas",
+        status: "error",
+        msg: "Eilutė nebuvo ištrinta",
       });
     }
   } catch (error) {

@@ -32,30 +32,6 @@ export async function moviesPut(req, res) {
   const { img, name, url, description, minutes, hours, category, status } = req.body;
   const duration = (hours ?? 0) * 60 + (minutes ?? 0);
 
-  try {
-    const sql = "SELECT * FROM movies WHERE url_slug = ? AND id != ?;";
-    const [result] = await connection.execute(sql, [url, +req.params.id]);
-    if (result.length > 0) {
-      return res.status(400).json({ status: "error", msg: "Toks filmas jau egzistuoja." });
-    }
-  } catch (error) {
-    console.log(error);
-    return res.status(500).json({ status: "error", msg: "Serverio klaida, pabandykite veliau (1)" });
-  }
-
-  let categoryId = 0;
-  try {
-    const sql = "SELECT * FROM categories WHERE url_slug = ?;";
-    const [result] = await connection.execute(sql, [category]);
-    if (result.length !== 1) {
-      return res.status(400).json({ status: "error", msg: "Tokia kategorija neegzistuoja." });
-    }
-    categoryId = result[0].id;
-  } catch (error) {
-    console.log(error);
-    return res.status(500).json({ status: "error", msg: "Serverio klaida, pabandykite veliau (2)" });
-  }
-
   let oldThumbnail = null;
   try {
     const [rows] = await connection.execute("SELECT thumbnail FROM movies WHERE id = ?", [+req.params.id]);
@@ -86,7 +62,7 @@ export async function moviesPut(req, res) {
     const [result] = await connection.execute(sql, [...sqValues, +req.params.id]);
 
     if (result.affectedRows !== 1) {
-      return res.status(500).json({ status: "error", msg: "Serverio klaida, pabandykite veliau (3)" });
+      return res.status(500).json({ status: "error", msg: "Serverio klaida, pabandykite vėliau" });
     }
 
     if (oldThumbnail && img && oldThumbnail !== img) {
@@ -97,8 +73,8 @@ export async function moviesPut(req, res) {
     }
   } catch (error) {
     console.log(error);
-    return res.status(500).json({ status: "error", msg: "Serverio klaida, pabandykite veliau (4)" });
+    return res.status(500).json({ status: "error", msg: "Serverio klaida, pabandykite vėliau" });
   }
 
-  return res.json({ status: "success", msg: "Filmas atnaujintas sėkmingai" });
+  return res.json({ status: "success", msg: "Eilutė atnaujinta sėkmingai" });
 }
