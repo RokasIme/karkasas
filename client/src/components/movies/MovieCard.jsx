@@ -1,5 +1,4 @@
 import { Link } from "react-router";
-import { formatMovieDuration } from "../../lib/formatMovieDuration";
 
 export function MovieCard({ data }) {
   return (
@@ -18,7 +17,6 @@ export function MovieCard({ data }) {
                 Read more
               </Link>
             </div>
-            <small className="text-body-secondary">{formatMovieDuration(data.duration)}</small>
           </div>
         </div>
       </div>

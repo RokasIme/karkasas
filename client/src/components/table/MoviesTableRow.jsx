@@ -4,7 +4,6 @@ import { BadgeDanger } from "../badge/BadgeDanger";
 import { BadgeDraft } from "../badge/BadgeDraft";
 import { BadgeSuccess } from "../badge/BadgeSuccess";
 import defaultImg from "../../assets/default.webp";
-import { formatMovieDuration } from "../../lib/formatMovieDuration";
 import { MoviesContext } from "../../context/movies/MoviesContext";
 
 export function MoviesTableRow({ movie }) {
@@ -34,7 +33,6 @@ export function MoviesTableRow({ movie }) {
       <td>{movie.title}</td>
       <td>{movie.url_slug}</td>
       <td>{movie.description ? <BadgeSuccess text="Provided" /> : <BadgeDanger text="Missing" />}</td>
-      <td>{formatMovieDuration(movie.duration)}</td>
       <td>{movie.is_published ? <BadgeSuccess text="Published" /> : <BadgeDraft text="Draft" />}</td>
       <td>
         <div style={{ display: "flex", gap: "0.3rem" }}>

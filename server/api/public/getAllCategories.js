@@ -10,7 +10,6 @@ export async function getAllCategories(req, res) {
                     WHERE movies.category_id = categories.id AND movies.is_published = 1
                 ) AS count
             FROM categories
-            WHERE is_published = 1
             ORDER BY name;`;
     const [result] = await connection.execute(sql);
     return res.json({

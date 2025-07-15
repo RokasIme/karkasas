@@ -5,7 +5,7 @@ import { useNavigate, useParams } from "react-router";
 export function CategoryEditForm() {
   const navigate = useNavigate();
   const { category } = useParams();
-  // const { adminCategories, adminRefreshCategory } = useContext(CategoriesContext);
+  // const { categories, adminRefreshCategory } = useContext(CategoriesContext);
 
   const [id, setId] = useState(0);
   const [name, setName] = useState("");
@@ -13,10 +13,10 @@ export function CategoryEditForm() {
   const [description, setDescription] = useState("");
   const [status, setStatus] = useState("draft");
 
-  // useEffect(handleResetClick, [adminCategories, category]);
+  // useEffect(handleResetClick, [categories, category]);
 
   function handleResetClick() {
-    // const categoryData = category ? adminCategories.filter((c) => c.url_slug === category)[0] : null;
+    // const categoryData = category ? categories.filter((c) => c.url_slug === category)[0] : null;
     // if (categoryData) {
     //   setId(categoryData.id);
     //   setName(categoryData.name);

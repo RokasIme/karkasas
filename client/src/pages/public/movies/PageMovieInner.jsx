@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { Link, useParams } from "react-router";
-import { formatMovieDuration } from "../../../lib/formatMovieDuration";
 import defaultImg from "../../../assets/logo.jpg";
 import { MoviesContext } from "../../../context/movies/MoviesContext";
 
@@ -58,7 +57,7 @@ export function PageMovieInner() {
         <div className="col-lg-6">
           <h1 className="display-5 fw-bold text-body-emphasis lh-1 mb-3">{movie.title}</h1>
           <p className="lead">{movie.description}</p>
-          <p className="lead">Duration: {formatMovieDuration(movie.duration)}</p>
+          <p className="lead">Duration: {movie.duration}</p>
           <p className="lead">
             Genre: <a href={`/categories/${movie.categoryUrlSlug.toLowerCase()}`}>{movie.categoryName}</a>
           </p>

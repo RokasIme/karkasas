@@ -43,16 +43,6 @@ export function Sidebar() {
                 All categories
               </Link>
             </li>
-            <li className="nav-item">
-              <Link to="/admin/categories/published" className="nav-link d-flex align-items-center gap-2">
-                Published categories
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/admin/categories/draft" className="nav-link d-flex align-items-center gap-2">
-                Draft categories
-              </Link>
-            </li>
           </ul>
           <h6 className="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-body-secondary text-uppercase">
             <span>Movies</span>
@@ -66,16 +56,6 @@ export function Sidebar() {
             <li className="nav-item">
               <Link to="/admin/movies" className="nav-link d-flex align-items-center gap-2">
                 All movies
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/admin/movies/published" className="nav-link d-flex align-items-center gap-2">
-                Published movies
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/admin/movies/draft" className="nav-link d-flex align-items-center gap-2">
-                Draft movies
               </Link>
             </li>
           </ul>

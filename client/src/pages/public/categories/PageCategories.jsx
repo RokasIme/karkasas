@@ -5,12 +5,12 @@ import { PageTitle } from "../../../components/page-title/PageTitle";
 // import { CategoriesContext } from "../../../context/categories/CategoriesContext";
 
 export function PageCategories() {
-  // const { publicCategories } = useContext(CategoriesContext);
+  // const { categories } = useContext(CategoriesContext);
 
   return (
     <div className="container">
       <PageTitle title="All " />
-      {/* <CategoriesList data={publicCategories} /> */}
+      {/* <CategoriesList data={categories} /> */}
     </div>
   );
 }

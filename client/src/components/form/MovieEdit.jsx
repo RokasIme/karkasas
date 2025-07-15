@@ -7,7 +7,7 @@ import defaultImg from "../../assets/default.webp";
 export function MovieEditForm() {
   const navigate = useNavigate();
   // const { movie } = useParams();
-  // const { adminCategories } = useContext(CategoriesContext);
+  // const { categories } = useContext(CategoriesContext);
   // const { movies, adminRefreshMovies } = useContext(MoviesContext);
 
   const [id, setId] = useState(0);
@@ -205,7 +205,7 @@ export function MovieEditForm() {
               id="category"
             >
               <option value="">Choose...</option>
-              {/* {adminCategories.map((c) => (
+              {/* {categories.map((c) => (
                 <option key={c.url_slug} value={c.url_slug}>
                   {c.name} */}
               {/* </option>

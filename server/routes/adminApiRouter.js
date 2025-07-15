@@ -5,7 +5,6 @@ import { moviesPost } from "../api/admin/moviesPost.js";
 import { moviesPut } from "../api/admin/moviesPut.js";
 import { moviesDelete } from "../api/admin/moviesDelete.js";
 
-import { categoriesGet } from "../api/admin/categoriesGet.js";
 import { categoriesPost } from "../api/admin/categoriesPost.js";
 import { categoriesDelete } from "../api/admin/categoriesDelete.js";
 import { categoriesPut } from "../api/admin/categoriesPut.js";
@@ -21,7 +20,6 @@ adminApiRouter.post("/movies", moviesPost);
 adminApiRouter.put("/movies/:id", moviesPut);
 adminApiRouter.delete("/movies/:id", moviesDelete);
 
-adminApiRouter.get("/categories", categoriesGet);
 adminApiRouter.post("/categories", categoriesPost);
 adminApiRouter.put("/categories/:id", categoriesPut);
 adminApiRouter.delete("/categories/:id", categoriesDelete);
