@@ -1,13 +1,15 @@
 import express from "express";
 import { getLogout } from "../api/admin/getLogout.js";
-import { moviesGet } from "../api/admin/moviesGet.js";
+
 import { moviesPost } from "../api/admin/moviesPost.js";
 import { moviesPut } from "../api/admin/moviesPut.js";
 import { moviesDelete } from "../api/admin/moviesDelete.js";
+
 import { categoriesGet } from "../api/admin/categoriesGet.js";
 import { categoriesPost } from "../api/admin/categoriesPost.js";
 import { categoriesDelete } from "../api/admin/categoriesDelete.js";
 import { categoriesPut } from "../api/admin/categoriesPut.js";
+
 import { apiUpload } from "../api/admin/apiUpload.js";
 import { uploadThumbnailImage } from "../middleware/uploadThumbnail.js";
 
@@ -15,7 +17,6 @@ export const adminApiRouter = express.Router();
 
 adminApiRouter.get("/logout", getLogout);
 
-adminApiRouter.get("/movies", moviesGet);
 adminApiRouter.post("/movies", moviesPost);
 adminApiRouter.put("/movies/:id", moviesPut);
 adminApiRouter.delete("/movies/:id", moviesDelete);

@@ -5,11 +5,7 @@ export function MovieCard({ data }) {
   return (
     <div className="col">
       <div className="card shadow-sm">
-        <img
-          src={"http://localhost:5445/img/thumbnails/" + data.thumbnail}
-          className="card-thumbnail card-img-top"
-          style={{ height: 225 }}
-        />
+        <img src={data.thumbnail} className="card-thumbnail card-img-top" style={{ height: 225 }} />
         <div className="badge bg-primary card-badge">{data.categoryName}</div>
         <div className="card-body">
           <Link to={`/movies/${data.url_slug}`} className="h4">

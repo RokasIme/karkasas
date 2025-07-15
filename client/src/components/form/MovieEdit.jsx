@@ -8,7 +8,7 @@ export function MovieEditForm() {
   const navigate = useNavigate();
   // const { movie } = useParams();
   // const { adminCategories } = useContext(CategoriesContext);
-  // const { adminMovies, adminRefreshMovies } = useContext(MoviesContext);
+  // const { movies, adminRefreshMovies } = useContext(MoviesContext);
 
   const [id, setId] = useState(0);
   const [img, setImg] = useState("");
@@ -20,10 +20,10 @@ export function MovieEditForm() {
   const [category, setCategory] = useState("");
   const [status, setStatus] = useState("draft");
 
-  // useEffect(handleResetClick, [adminMovies, movie]);
+  // useEffect(handleResetClick, [movies, movie]);
 
   function handleResetClick() {
-    //   const movieData = movie ? adminMovies.filter((m) => m.url_slug === movie)[0] : null;
+    //   const movieData = movie ? movies.filter((m) => m.url_slug === movie)[0] : null;
     //   if (movieData) {
     //     setId(movieData.id);
     //     setImg(movieData.thumbnail);

@@ -5,13 +5,13 @@ import { PageTitle } from "../../../components/page-title/PageTitle";
 // import { MovieList } from "../../../components/movies/MovieList";
 
 export function PageMovies() {
-  // const { publicMovies } = useContext(MoviesContext);
+  // const { movies } = useContext(MoviesContext);
 
   return (
     <div className="container">
       <PageTitle title="All " />
 
-      {/* <MovieList data={publicMovies} /> */}
+      {/* <MovieList data={movies} /> */}
     </div>
   );
 }

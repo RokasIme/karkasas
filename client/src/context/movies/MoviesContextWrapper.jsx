@@ -4,24 +4,17 @@ import { MoviesContext } from "./MoviesContext";
 import { UserContext } from "../user/UserContext";
 
 export function MoviesContextWrapper(props) {
-  const [publicMovies, setPublicMovies] = useState(initialMoviesContext.publicMovies);
-  const [adminMovies, setAdminMovies] = useState(initialMoviesContext.adminMovies);
+  const [movies, setMovies] = useState(initialMoviesContext.movies);
 
   const { isLoggedIn } = useContext(UserContext);
 
   useEffect(() => {
     if (!isLoggedIn) {
-      fetchPublicMovies();
+      fetchMovies();
     }
   }, [isLoggedIn]);
 
-  useEffect(() => {
-    if (isLoggedIn) {
-      fetchAdminMovies();
-    }
-  }, [isLoggedIn]);
-
-  function fetchPublicMovies() {
+  function fetchMovies() {
     fetch("http://localhost:5445/api/public/movies", {
       method: "GET",
       credentials: "include",
@@ -29,49 +22,27 @@ export function MoviesContextWrapper(props) {
       .then((res) => res.json())
       .then((data) => {
         if (data.status === "success") {
-          setPublicMoviesList(data.list);
+          setMoviesList(data.list);
         }
       })
       .catch(console.error);
   }
 
-  function fetchAdminMovies() {
-    fetch("http://localhost:5445/api/admin/movies", {
-      method: "GET",
-      credentials: "include",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.status === "success") {
-          setAdminMoviesList(data.list);
-        }
-      })
-      .catch(console.error);
-  }
-
-  function setPublicMoviesList(data) {
-    setPublicMovies(() => data);
-  }
-
-  function setAdminMoviesList(data) {
-    setAdminMovies(() => data);
+  function setMoviesList(data) {
+    setMovies(() => data);
   }
 
   function adminDeleteMovie(id) {
-    setPublicMovies((list) => list.filter((m) => m.id !== id));
-    setAdminMovies((list) => list.filter((m) => m.id !== id));
+    setMovies((list) => list.filter((m) => m.id !== id));
   }
 
   function adminRefreshMovies() {
-    fetchPublicMovies();
-    fetchAdminMovies();
+    fetchMovies();
   }
 
   const value = {
-    publicMovies,
-    adminMovies,
-    setPublicMovies,
-    setAdminMoviesList,
+    movies,
+    setMovies,
     adminDeleteMovie,
     adminRefreshMovies,
   };
