@@ -13,8 +13,13 @@ _website design project_
 
 This project is for exam porpuses only. Pull request are welcome, but priority for project authors! Thank you for your cooperation!
 To log in, you can use the following credentials:
-Username: admin@admin.lt
-Password: admin@admin.lt
+<br>
+ADMIN: <br>
+Username: admin@admin.lt <br>
+Password: admin@admin.lt <br>
+USER: <br>
+rokas@rokas.lt <br>
+rokas@rokas.lt
 
 ## 🎯 Project features/goals
 
@@ -44,7 +49,7 @@ Would like to run this project locally? Open terminal and follow these steps:
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/RokasIme/exam.git
+   git clone https://github.com/RokasIme/egzaminas.git
    ```
 2. Install main NPM packages
    ```sh
