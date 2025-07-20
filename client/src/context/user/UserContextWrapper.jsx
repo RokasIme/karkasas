@@ -20,11 +20,11 @@ export function UserContextWrapper(props) {
         }
       })
       .catch(console.error);
-  }, []);
+  }, [role, isLoggedIn]);
 
   function login(data) {
     setIsLoggedIn(() => true);
-    setRole(() => "admin");
+    setRole(() => data.role);
     setEmail(() => data.email);
     setUserId(() => data.id);
   }
